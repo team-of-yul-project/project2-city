@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.example.teamproject.Mapper.memberMapper">
+   
+   <!-- 마이 페이지 이동 -->
+   <select id="memberMypage" resultType="com.example.teamproject.Vo.MemberVo">
+   
+   select * from member3 where M_ID=#{M_ID}
+   
+   </select>
+   
+   <!-- 개인페이지 업데이트 -->
+   <update id="member_Modify">
+   
+   update member3 set M_NAME = #{m_Name} ,m_Nickname = #{m_Nickname},m_Birth = #{m_Birth},m_Gender = #{m_Gender},m_Email = #{m_Email},
+	m_Post = #{m_Post},m_Add1 = #{m_Add1},m_Add2 = #{m_Add2},m_Phone = #{m_Phone} where m_id = #{m_id}
+   
+   </update>
+   
+   <!-- 충전 페이지 -->
+   <select id="member_charge" resultType="com.example.teamproject.Vo.MemberVo">
+   
+   select * from member3 where M_ID=#{M_ID}
+   
+   </select>
+   
+   <!-- 포인트 충전-->
+   <update id="member_pointcharge">
+   
+   update member3 set m_point = #{m_point} where m_id = #{m_id}
+   
+   </update>
+
+
+
+   </mapper>
